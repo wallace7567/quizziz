@@ -1,0 +1,425 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#050816,#0F172A,#1E1B4B);
+    min-height:100vh;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+.hidden{
+    display:none !important;
+}
+
+/* Fundo */
+
+#particles{
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at 20% 20%,rgba(124,58,237,.25),transparent 250px),
+    radial-gradient(circle at 80% 70%,rgba(59,130,246,.2),transparent 300px),
+    radial-gradient(circle at 50% 100%,rgba(168,85,247,.18),transparent 350px);
+    z-index:-1;
+}
+
+/* Centralizar */
+
+section{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+}
+
+/* Card */
+
+.card,
+.quiz-card{
+
+    width:100%;
+    max-width:800px;
+
+    background:rgba(255,255,255,.06);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:25px;
+
+    padding:35px;
+
+    box-shadow:0 0 30px rgba(124,58,237,.35);
+
+    animation:zoom .6s;
+}
+
+/* Inicio */
+
+.card h1{
+
+    text-align:center;
+
+    font-size:45px;
+
+    color:#A855F7;
+
+    margin-bottom:20px;
+
+}
+
+.card p{
+
+    text-align:center;
+
+    opacity:.8;
+
+}
+
+input{
+
+    width:100%;
+
+    margin-top:25px;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:#101828;
+
+    color:white;
+
+    font-size:18px;
+
+    outline:none;
+
+}
+
+input:focus{
+
+    border:2px solid #7C3AED;
+
+}
+
+button{
+
+    width:100%;
+
+    margin-top:25px;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:#7C3AED;
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    font-weight:bold;
+
+}
+
+button:hover{
+
+    transform:scale(1.03);
+
+    background:#9333EA;
+
+    box-shadow:0 0 20px #9333EA;
+
+}
+
+/* topo */
+
+.top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.scoreBox{
+
+    text-align:center;
+
+    background:#111827;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    min-width:110px;
+
+}
+
+.scoreBox h3{
+
+    color:#A855F7;
+
+    font-size:30px;
+
+}
+
+/* progresso */
+
+.progress{
+
+    width:100%;
+
+    height:12px;
+
+    background:#1F2937;
+
+    border-radius:50px;
+
+    overflow:hidden;
+
+    margin-bottom:30px;
+
+}
+
+#progress-bar{
+
+    width:0%;
+
+    height:100%;
+
+    background:linear-gradient(90deg,#7C3AED,#3B82F6);
+
+    transition:.6s;
+
+}
+
+/* pergunta */
+
+#question{
+
+    margin-bottom:30px;
+
+    text-align:center;
+
+}
+
+/* respostas */
+
+#answers{
+
+    display:grid;
+
+    gap:18px;
+
+}
+
+.answer{
+
+    background:#111827;
+
+    border:2px solid transparent;
+
+    padding:18px;
+
+    border-radius:15px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    font-size:18px;
+
+}
+
+.answer:hover{
+
+    border-color:#7C3AED;
+
+    transform:translateY(-3px);
+
+}
+
+.correct{
+
+    background:#16A34A !important;
+
+    animation:pulse .5s;
+
+}
+
+.wrong{
+
+    background:#DC2626 !important;
+
+    animation:shake .4s;
+
+}
+
+/* resultado */
+
+.result{
+
+    text-align:center;
+
+}
+
+.numbers{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+
+    margin:35px 0;
+
+}
+
+.numbers div{
+
+    background:#111827;
+
+    padding:20px;
+
+    border-radius:20px;
+
+}
+
+.numbers h3{
+
+    font-size:40px;
+
+    color:#A855F7;
+
+}
+
+/* confete */
+
+.confetti{
+
+    position:fixed;
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+    animation:fall 2.5s linear forwards;
+
+}
+
+/* animações */
+
+@keyframes zoom{
+
+from{
+
+opacity:0;
+
+transform:scale(.8);
+
+}
+
+to{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
+
+@keyframes pulse{
+
+0%{transform:scale(1);}
+
+50%{transform:scale(1.08);}
+
+100%{transform:scale(1);}
+
+}
+
+@keyframes shake{
+
+0%{transform:translateX(0);}
+
+20%{transform:translateX(-10px);}
+
+40%{transform:translateX(10px);}
+
+60%{transform:translateX(-10px);}
+
+80%{transform:translateX(10px);}
+
+100%{transform:translateX(0);}
+
+}
+
+@keyframes fall{
+
+from{
+
+transform:translateY(-100px) rotate(0deg);
+
+opacity:1;
+
+}
+
+to{
+
+transform:translateY(100vh) rotate(720deg);
+
+opacity:0;
+
+}
+
+}
+
+/* celular */
+
+@media(max-width:700px){
+
+.top{
+
+flex-direction:column;
+
+gap:20px;
+
+}
+
+.card h1{
+
+font-size:32px;
+
+}
+
+.numbers{
+
+grid-template-columns:1fr;
+
+}
+
+}
